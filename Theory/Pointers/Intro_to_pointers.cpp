@@ -13,6 +13,6 @@ int main()
     cout << &a << endl; // address  of a
     cout << b << endl;  // address of a
     cout << *b << endl; // dereference operator, hence value of a
-    cout << &b << endl; // base address of a
+    cout << &b << endl; // address of b
     return 0;
 }
