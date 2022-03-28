@@ -11,6 +11,10 @@ void swapByValue(int a, int b)
 
 void swapByRef(int *a, int *b)
 {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    cout << "values inside function: " << *a << " " << *b << endl;
 }
 
 int main()
@@ -23,6 +27,9 @@ int main()
     cout << "values: " << a << " " << b << endl;
 
     cout << "=================================================================" << endl;
+    cout << "Swap by Referance" << endl;
+    swapByRef(&a, &b);
+    cout << "values: " << a << " " << b << endl;
 
     return 0;
 }
