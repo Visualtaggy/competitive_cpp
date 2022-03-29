@@ -25,6 +25,14 @@ void swap(int *a, int *b)
     cout << "values inside function: " << *a << " " << *b << endl;
 }
 
+void swapDoublePointer(int **a, int **b)
+{
+    int *temp = *a;
+    *a = *b;
+    *b = temp;
+    cout << "values inside function: " << **a << " " << **b << endl;
+}
+
 int main()
 {
     int a = 10;
@@ -45,6 +53,9 @@ int main()
     int *r2 = &b;
     swap(r1, r2);
     cout << "values:" << a << " " << b << endl;
+    cout << "=================================================================" << endl;
 
+    swapDoublePointer(&r1, &r2);
+    cout << a << " " << b << endl; // HERE the original values don't change BUT the address swap did happen inside r1 and r2
     return 0;
 }
