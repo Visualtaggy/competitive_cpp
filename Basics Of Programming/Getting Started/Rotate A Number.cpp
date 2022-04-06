@@ -15,12 +15,13 @@ int main()
         ++nod;
     }
 
+    k = k % nod;
     if (k < 0)
     {
         k = k + nod;
     }
 
-    k = k % nod;
+    
     int div = 1;
     int mult = 1;
     int total = 0;
