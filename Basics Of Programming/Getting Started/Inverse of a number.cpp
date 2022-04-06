@@ -5,10 +5,27 @@
 // 5. Print it's inverse.
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
 
+    int n;
+    cin >> n;
+
+    int total = 0;
+    int counter = 1;
+    while (n != 0)
+    {
+        int digit = n % 10;
+        int power = pow(10, digit - 1);
+        total = total + (power * counter);
+
+        ++counter;
+        n = n / 10;
+    }
+
+    cout << total << endl;
     return 0;
 }
