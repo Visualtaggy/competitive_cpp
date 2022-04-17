@@ -8,6 +8,18 @@ using namespace std;
 int DecToAny(int n, int b)
 {
     // write your code here
+    int total = 0;
+    int power = 0;
+
+    while (n != 0)
+    {
+        int digit = n % b;
+        n = n / b;
+        total += pow(10, power) * digit;
+        ++power;
+    }
+
+    return total;
 }
 int main()
 {
