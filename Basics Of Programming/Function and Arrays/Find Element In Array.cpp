@@ -9,4 +9,28 @@ using namespace std;
 int main()
 {
     // write your code here
+
+    int n;
+    cin >> n;
+
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int find;
+    cin >> find;
+
+    int value = -1;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == find)
+        {
+            value = i;
+        }
+    }
+    cout << value << endl;
 }
