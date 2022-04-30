@@ -28,4 +28,47 @@ int main()
     }
 
     // write your code here
-}
+    int answer[n2];
+
+    int carry = 0;
+    int i = n1 - 1;
+    int j = n2 - 1;
+    int k = n2 - 1;
+    int lengthOfK = k;
+
+    while (k >= 0)
+    {
+        int digit = 0;
+        int subValue = i < 0 ? 0 : a1[i];
+        if (a2[j] + carry >= subValue)
+        {
+            digit = (a2[j] + carry) - subValue;
+            carry = 0;
+        }
+        else
+        {
+            digit = (a2[j] + carry + 10) - subValue;
+            carry = -1;
+        }
+
+        answer[k] = digit;
+        --i;
+        --j;
+        --k;
+    }
+
+    int index = 0;
+    while(index <= lengthOfK){ 
+        if(answer[index] == 0){
+            index++;
+        }else{
+            break;
+        }
+    }
+    
+    while(index <= lengthOfK){
+        cout << answer[index] <<endl;
+        index++;
+    }
+
+} 
