@@ -8,6 +8,18 @@ using namespace std;
 void reverse(int *arr, int n)
 {
     // write your code here
+    int low = 0;
+    int high = n - 1;
+
+    while (low < high)
+    {
+        int temp = arr[low];
+        arr[low] = arr[high];
+        arr[high] = temp;
+
+        ++low;
+        --high;
+    }
 }
 
 void display(int *arr, int n)
