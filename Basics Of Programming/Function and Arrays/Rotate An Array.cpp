@@ -7,9 +7,28 @@
 #include <iostream>
 using namespace std;
 
+void reverse(int *arr,int low, int high)
+{
+    while (low < high)
+    {
+        int temp = arr[low];
+        arr[low] = arr[high];
+        arr[high] = temp;
+        ++low;
+        --high;
+    }
+}
+
 void rotate(int *arr, int n, int k)
 {
+    k = k % n;
+    if(k < 0){
+        k = k + n;
+    }
     // write your code here
+    reverse(arr, 0, n - 1 - k);
+    reverse(arr, n - k, n -1 );
+    reverse(arr, 0, n - 1);
 }
 
 void display(int *arr, int n)
