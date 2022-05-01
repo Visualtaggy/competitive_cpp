@@ -6,44 +6,33 @@
 // https://www.pepcoding.com/resources/online-java-foundation/getting-started/inverse-of-a-number/ojquestion
 // The only difference is the range of values is from 0 to n - 1, instead of 1 to n.
 
-import java.io.*;
-import java.util.*;
+#include <iostream>
+using namespace std;
 
-public
-class Main
+int *inverse(int *arr, int n)
 {
-public
-    static void display(int[] a)
-    {
-        StringBuilder sb = new StringBuilder();
+    // write your code here
+}
 
-        for (int val : a)
-        {
-            sb.append(val + "\n");
-        }
-        System.out.println(sb);
+void display(int *arr, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << endl;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int *arr = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
 
-public
-    static int[] inverse(int[] a)
-    {
-        // write your code here
-        return null;
-    }
-
-public
-    static void main(String[] args) throws Exception
-    {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(br.readLine());
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++)
-        {
-            a[i] = Integer.parseInt(br.readLine());
-        }
-
-        int[] inv = inverse(a);
-        display(inv);
-    }
+    int *inv = inverse(arr, n);
+    display(inv, n);
 }
