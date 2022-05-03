@@ -12,6 +12,14 @@ using namespace std;
 int *inverse(int *arr, int n)
 {
     // write your code here
+    int *answer = new int[n];
+
+    for (int index = 0; index < n; index++)
+    {
+        answer[arr[index]] = index;
+    }
+
+    return answer;
 }
 
 void display(int *arr, int n)
