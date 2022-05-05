@@ -37,4 +37,27 @@ int main()
     cin >> data;
 
     // write your code here
+    int low = 0;
+    int high = n - 1;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+
+        if (data > arr[mid])
+        {
+            low = mid + 1;
+        }
+        else if (data < arr[mid])
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            cout << mid << endl;
+        }
+    }
+
+    cout << arr[low] << endl;
+    cout << arr[high] << endl;
 }
