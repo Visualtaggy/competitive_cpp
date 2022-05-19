@@ -8,4 +8,39 @@ using namespace std;
 int main()
 {
     // write your code here
+    int n;
+    cin >> n;
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int max = arr[0];
+    for (int element : arr)
+    {
+        if (element > max)
+        {
+            max = element;
+        }
+    }
+
+    for (int i = 0; i < max; i++)
+    {
+
+        for (int val : arr)
+        {
+            if (i < val)
+            {
+                cout << "*	";
+            }
+            else
+            {
+                cout << "	";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
 }
