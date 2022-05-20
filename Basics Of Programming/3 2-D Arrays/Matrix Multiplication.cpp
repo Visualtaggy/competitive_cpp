@@ -13,5 +13,33 @@ using namespace std;
 
 int main()
 {
+    // Matrix 1
+    int r1;
+    int c1;
+    cin >> r1 >> c1;
+    int arr1[r1][c1];
+
+    for (int i = 0; i < r1; i++)
+    {
+        for (int j = 0; j < c1; j++)
+        {
+            cin >> arr1[i][j];
+        }
+    }
+
+    // Matrix 2
+    int r2;
+    int c2;
+    cin >> r2 >> c2;
+    int arr2[r2][c2];
+
+    for (int i = 0; i < r2; i++)
+    {
+        for (int j = 0; j < c2; j++)
+        {
+            cin >> arr2[i][j];
+        }
+    }
+
     return 0;
 }
