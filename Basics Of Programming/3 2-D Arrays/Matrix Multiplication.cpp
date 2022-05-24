@@ -8,6 +8,7 @@
 // 8. If the two arrays can't be multiplied, print "Invalid input".
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -17,27 +18,69 @@ int main()
     int r1;
     int c1;
     cin >> r1 >> c1;
-    int arr1[r1][c1];
+    vector<vector<int>> one;
 
     for (int i = 0; i < r1; i++)
     {
+        vector<int> sOne;
         for (int j = 0; j < c1; j++)
         {
-            cin >> arr1[i][j];
+            int element;
+            cin >> element;
+            sOne.push_back(element);
         }
+        one.push_back(sOne);
     }
 
     // Matrix 2
     int r2;
     int c2;
     cin >> r2 >> c2;
-    int arr2[r2][c2];
+    vector<vector<int>> two;
 
     for (int i = 0; i < r2; i++)
     {
+        vector<int> sTwo;
         for (int j = 0; j < c2; j++)
         {
-            cin >> arr2[i][j];
+            int element;
+            cin >> element;
+            sTwo.push_back(element);
+        }
+        two.push_back(sTwo);
+    }
+
+    if (c1 != r2)
+    {
+        cout << "Invalid input";
+    }
+    else
+    {
+        vector<vector<int>> product;
+
+        for (int i = 0; i < r1; i++)
+        {
+            vector<int> sProduct;
+            for (int j = 0; j < c2; j++)
+            {
+                int val = 0;
+                for (int k = 0; k < c1; k++)
+                {
+                    val += one[i][k] * two[k][j];
+                }
+                sProduct.push_back(val);
+            }
+            product.push_back(sProduct);
+        }
+
+        // print debug
+        for (int i = 0; i < r1; i++)
+        {
+            for (int j = 0; j < c2; j++)
+            {
+                cout << product[i][j] << " ";
+            }
+            cout << endl;
         }
     }
 
