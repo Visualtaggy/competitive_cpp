@@ -37,6 +37,31 @@ using namespace std;
 void columnTraversal(vector<vector<int>> mat)
 {
     //   Write your code here.
+    int r = mat.size();
+    int c = mat[0].size();
+
+    // we know colmns always increase hence
+    for (int j = 0; j < c; j++)
+    {
+
+        // handling rows
+        if (j % 2 == 0)
+        {
+            // to move down!
+            for (int i = 0; i < r; i++)
+            {
+                cout << mat[i][j] << endl;
+            }
+        }
+        else
+        {
+            // to move back up!
+            for (int i = r - 1; i >= 0; i--)
+            {
+                cout << mat[i][j] << endl;
+            }
+        }
+    }
 }
 
 int main()
