@@ -4,31 +4,28 @@
 // 4. You are required to traverse and print the contents of the 2d array in form of a spiral.
 // Note - Please check the sample output for details.
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int mr = 100, mc = 100;
-void inputBound(int (&mat)[mr][mc], int n, int m)
+int main()
 {
 
-    for (int i = 0; i < n; i++)
+    vector<vector<int>> arr;
+    int r;
+    int c;
+    cin >> r >> c;
+
+    for (int i = 0; i < r; i++)
     {
-        for (int j = 0; j < m; j++)
+        vector<int> sArr;
+        for (int j = 0; j < c; j++)
         {
-            cin >> mat[i][j];
+            int element;
+            cin >> element;
+            sArr.push_back(element);
         }
+        arr.push_back(sArr);
     }
-}
-
-int main(int argc, char **argv)
-{
-
-    int mat[mr][mc] = {0};
-    int n, m;
-    cin >> n >> m;
-
-    inputBound(mat, n, m);
-
-    // write your code here
 
     return 0;
 }
