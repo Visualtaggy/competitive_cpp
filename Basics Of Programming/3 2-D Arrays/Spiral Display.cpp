@@ -27,5 +27,54 @@ int main()
         arr.push_back(sArr);
     }
 
+    // starting row
+    int minR = 0;
+    // starting coll
+    int minC = 0;
+    // end row
+    int maxR = arr.size() - 1;
+    // end coll
+    int maxC = arr[0].size() - 1;
+
+    int totalElements = r * c;
+    int visited = 0;
+
+    while (visited < totalElements)
+    {
+
+        // left wall
+        for (int i = minR, j = minC; i <= maxR && visited < totalElements; i++)
+        {
+            cout << arr[i][j] << endl;
+            ++visited;
+        }
+        minC++;
+
+        // bottom wall
+        for (int i = maxR, j = minC; j <= maxC && visited < totalElements; j++)
+        {
+            cout << arr[i][j] << endl;
+            ++visited;
+        }
+        maxR--;
+
+        // right wall
+        for (int i = maxR, j = maxC; i >= minR && visited < totalElements; i--)
+        {
+            cout << arr[i][j] << endl;
+            ++visited;
+        }
+        maxC--;
+
+        // top wall
+        for (int i = minR, j = maxC; j >= minC && visited < totalElements; j--)
+        {
+            cout << arr[i][j] << endl;
+            ++visited;
+        }
+
+        minR++;
+    }
+
     return 0;
 }
