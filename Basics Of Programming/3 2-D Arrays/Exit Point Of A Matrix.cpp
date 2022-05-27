@@ -34,5 +34,54 @@ int main()
         arr.push_back(sArr);
     }
 
+    int dir = 0;
+    int i = 0;
+    int j = 0;
+
+    while (true)
+    {
+        dir = (dir + arr[i][j]) % 4;
+
+        // travel
+        switch (dir)
+        {
+        case 0:
+            j++;
+            break;
+        case 1:
+            i++;
+            break;
+        case 2:
+            j--;
+            break;
+        case 3:
+            i--;
+            break;
+        }
+
+        // exit
+        if (i < 0)
+        {
+            i++;
+            break;
+        }
+        else if (j < 0)
+        {
+            j++;
+            break;
+        }
+        else if (i > arr.size() - 1)
+        {
+            i--;
+            break;
+        }
+        else if (j > arr[0].size() - 1)
+        {
+            j--;
+            break;
+        }
+    }
+    cout << i << endl;
+    cout << j << endl;
     return 0;
 }
