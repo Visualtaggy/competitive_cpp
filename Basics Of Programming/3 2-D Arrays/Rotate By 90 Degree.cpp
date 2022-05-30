@@ -13,7 +13,8 @@ int main()
     vector<vector<int>> arr;
     int r;
     int c;
-    cin >> r >> c;
+    cin >> r;
+    c = r;
 
     for (int i = 0; i < r; i++)
     {
@@ -28,6 +29,45 @@ int main()
     }
 
     // Code goes here
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = i; j < c; j++)
+        {
+            int temp = arr[i][j];
+
+            arr[i][j] = arr[j][i];
+            arr[j][i] = temp;
+        }
+    }
+
+    for (int i = 0; i < r; i++)
+    {
+        int low = 0;
+        int high = c - 1;
+
+        while (low < high)
+        {
+            int temp = arr[i][low];
+
+            arr[i][low] = arr[i][high];
+            arr[i][high] = temp;
+
+            low++;
+            high--;
+        }
+    }
+
+    // Output statement
+    for (int i = 0; i < r; i++)
+    {
+
+        for (int j = 0; j < c; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
