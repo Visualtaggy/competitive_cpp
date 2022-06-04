@@ -43,13 +43,17 @@ int main()
 
     // rotating the array based on user input
     rotateOneDArray(shellExtract, rotate);
+    cout << endl;
+
+    for (int i = 0; i < shellExtract.size(); i++)
+    {
+        cout << shellExtract[i] << " ";
+    }
 
     return 0;
 }
-void reverse(vector<int> &arr, int l, int h)
+void reverse(vector<int> &arr, int low, int high)
 {
-    int low = l;
-    int high = h - 1;
 
     while (low < high)
     {
@@ -69,9 +73,9 @@ void reverse(vector<int> &arr, int l, int h)
 
 void rotateOneDArray(vector<int> &arr, int rotate)
 {
-    reverse(arr, 0, arr.size() - rotate);
-    reverse(arr, arr.size() - rotate + 1, arr.size());
-    reverse(arr, 0, arr.size());
+    reverse(arr, 0, arr.size() - 1 - rotate);
+    reverse(arr, arr.size() - rotate, arr.size() - 1);
+    reverse(arr, 0, arr.size() - 1);
 }
 
 vector<int> extractShell(vector<vector<int>> arr, int shell)
