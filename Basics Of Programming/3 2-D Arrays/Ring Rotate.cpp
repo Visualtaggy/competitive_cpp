@@ -11,6 +11,7 @@ using namespace std;
 // functions
 void display(vector<vector<int>> arr, int r, int c);
 vector<int> extractShell(vector<vector<int>> arr, int shell);
+vector<int> reverse(vector<int> arr);
 
 int main()
 {
@@ -38,6 +39,28 @@ int main()
     extractShell(arr, shell);
 
     return 0;
+}
+vector<int> reverse(vector<int> arr)
+{
+    int low = 0;
+    int high = arr.size() - 1;
+
+    while (low < high)
+    {
+        int temp = arr[low];
+        arr[low] = arr[high];
+        arr[high] = temp;
+        ++low;
+        --high;
+    }
+
+    // DEBUG PRINT
+    // for (int i = 0; i < arr.size(); i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+
+    return arr;
 }
 
 vector<int> extractShell(vector<vector<int>> arr, int shell)
