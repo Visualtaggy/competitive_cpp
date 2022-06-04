@@ -8,6 +8,9 @@
 
 using namespace std;
 
+// functions
+void display(vector<vector<int>> arr, int r, int c);
+
 int main()
 {
     int r, c;
@@ -29,10 +32,13 @@ int main()
     }
 
     // Code here
+    display(arr, r, c);
+    return 0;
+}
 
-    
+void display(vector<vector<int>> arr, int r, int c)
+{
 
-    // Debug to Print
     for (int i = 0; i < r; i++)
     {
         for (int j = 0; j < c; j++)
@@ -41,5 +47,4 @@ int main()
         }
         cout << endl;
     }
-    return 0;
 }
