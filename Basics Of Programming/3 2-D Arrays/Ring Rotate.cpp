@@ -12,6 +12,7 @@ using namespace std;
 void display(vector<vector<int>> arr, int r, int c);
 vector<int> extractShell(vector<vector<int>> arr, int shell);
 vector<int> reverse(vector<int> arr);
+void rotateOneDArray(vector<int> &arr, int rotate);
 
 int main()
 {
@@ -35,15 +36,20 @@ int main()
 
     // Code here
     display(arr, r, c);
-    cin >> shell;
-    extractShell(arr, shell);
+    cin >> shell >> rotate;
+
+    // taking elements from main array
+    vector<int> shellExtract = extractShell(arr, shell);
+
+    // rotating the array based on user input
+    rotateOneDArray(shellExtract, rotate);
 
     return 0;
 }
-vector<int> reverse(vector<int> arr)
+void reverse(vector<int> &arr, int l, int h)
 {
-    int low = 0;
-    int high = arr.size() - 1;
+    int low = l;
+    int high = h - 1;
 
     while (low < high)
     {
@@ -59,8 +65,13 @@ vector<int> reverse(vector<int> arr)
     // {
     //     cout << arr[i] << " ";
     // }
+}
 
-    return arr;
+void rotateOneDArray(vector<int> &arr, int rotate)
+{
+    reverse(arr, 0, arr.size() - rotate);
+    reverse(arr, arr.size() - rotate + 1, arr.size());
+    reverse(arr, 0, arr.size());
 }
 
 vector<int> extractShell(vector<vector<int>> arr, int shell)
@@ -100,10 +111,10 @@ vector<int> extractShell(vector<vector<int>> arr, int shell)
     }
 
     // DEBUG PRINT
-    // for (int i = 0; i < extractedShell.size(); i++)
-    // {
-    //     cout << extractedShell[i] << " ";
-    // }
+    for (int i = 0; i < extractedShell.size(); i++)
+    {
+        cout << extractedShell[i] << " ";
+    }
 
     return extractedShell;
 }
