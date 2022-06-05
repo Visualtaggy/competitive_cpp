@@ -21,3 +21,44 @@
 // 2. You are given n * n numbers, representing elements of 2d array a.
 // 3. You are required to diagonally traverse the upper half of the matrix and print the contents.
 // For details check image.
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void display(vector<vector<int>> &matrix);
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    vector<vector<int>> matrix;
+    for (int i = 0; i < n; i++)
+    {
+        vector<int> sMatrix;
+        for (int j = 0; j < n; j++)
+        {
+            int temp;
+            cin >> temp;
+            sMatrix.push_back(temp);
+        }
+        matrix.push_back(sMatrix);
+    }
+
+    display(matrix);
+    return 0;
+}
+
+void display(vector<vector<int>> &matrix)
+{
+    for (int i = 0; i < matrix.size(); i++)
+    {
+        for (int j = 0; j < matrix[0].size(); j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
