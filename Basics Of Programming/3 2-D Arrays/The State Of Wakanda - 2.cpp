@@ -47,8 +47,19 @@ int main()
         matrix.push_back(sMatrix);
     }
 
-    display(matrix);
-    return 0;
+    int minr = 0;
+    int minc = 0;
+    int maxr = matrix.size();
+    int maxc = matrix[0].size();
+
+    while (minc < maxc)
+    {
+        for (int i = minr, j = minc; i < maxr && j < maxc; i++, j++)
+        {
+            cout << matrix[i][j] << endl;
+        }
+        minc++;
+    }
 }
 
 void display(vector<vector<int>> &matrix)
