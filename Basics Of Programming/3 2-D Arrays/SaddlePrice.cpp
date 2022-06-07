@@ -1,7 +1,3 @@
-// 1. You are given a square matrix of size 'n'. You are given n*n elements of the square matrix.
-// 2. You are required to find the saddle price of the given matrix and print the saddle price.
-// 3. The saddle price is defined as the least price in the row but the maximum price in the column of the matrix.
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,6 +5,33 @@ using namespace std;
 void saddle_point(int n, vector<vector<int>> &arr)
 {
     // write your code here
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        int champ = 0;
+        for (int j = 1; j < arr[0].size(); j++)
+        {
+            if (arr[i][champ] > arr[i][j])
+            {
+                champ = j;
+            }
+        }
+        bool flag = true;
+        for (int k = 0; k < arr.size(); k++)
+        {
+            if (arr[i][champ] < arr[k][champ])
+            {
+                flag = false;
+                break;
+            }
+        }
+        if (flag == true)
+        {
+            cout << arr[i][champ] << endl;
+            return;
+        }
+    }
+    cout << "Invalid input" << endl;
 }
 
 int main()
