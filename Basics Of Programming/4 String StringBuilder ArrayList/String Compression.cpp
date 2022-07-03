@@ -11,6 +11,7 @@
 using namespace std;
 
 void compression1(string str);
+void compression2(string str);
 
 int main()
 {
@@ -20,7 +21,7 @@ int main()
     // Code
     compression1(str);
     cout << endl;
-
+    compression2(str);
     return 0;
 }
 
@@ -34,6 +35,29 @@ void compression1(string str)
             ++index;
         }
         cout << str[index];
+        ++index;
+    }
+}
+
+void compression2(string str)
+{
+    int index = 0;
+    while (index < str.size())
+    {
+        int counter = 1;
+        while (str[index] == str[index + 1] && index < str.size() - 1)
+        {
+            ++index;
+            ++counter;
+        }
+        if (counter > 1)
+        {
+            cout << str[index] << counter;
+        }
+        else
+        {
+            cout << str[index];
+        }
         ++index;
     }
 }
