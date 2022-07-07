@@ -5,3 +5,31 @@
 //    'e'-'b' = 3
 //    'c'-'e' = -2
 //    'd'-'c' = 1
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void printstr(string str);
+
+int main()
+{
+    string str;
+    getline(cin, str);
+    printstr(str);
+    return 0;
+}
+
+void printstr(string str)
+{
+    int prev = 0;
+    cout << str[prev];
+    for (int i = 1; i < str.size(); i++)
+    {
+
+        cout << str[i] - str[prev];
+        cout << str[i];
+        ++prev;
+    }
+}
