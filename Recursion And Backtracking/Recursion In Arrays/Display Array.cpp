@@ -12,6 +12,12 @@ using namespace std;
 void display(int arr[], int idx, int n)
 {
     // write your code here
+    if (idx == n)
+    {
+        return;
+    }
+    cout << arr[idx] << endl;
+    display(arr, idx + 1, n);
 }
 
 int main()
