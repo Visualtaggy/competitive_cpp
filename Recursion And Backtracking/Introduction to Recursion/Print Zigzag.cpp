@@ -11,3 +11,26 @@
 // 2. Figure out the pattern and complete the recursive function pzz to achieve the above for any positive number n.
 
 // Note -> The online judge can't force you to write the function recursively but that is what the spirit of question is.Write recursive and not iterative logic. The purpose of the question is to aid learning recursion and not test you
+
+#include <iostream>
+using namespace std;
+
+void pzz(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " "; // pre
+    pzz(n - 1);
+    cout << n << " "; // in
+    pzz(n - 1);
+    cout << n << " "; // post
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    pzz(n);
+}
