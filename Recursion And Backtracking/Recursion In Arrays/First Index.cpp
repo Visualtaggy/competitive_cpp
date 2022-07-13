@@ -11,6 +11,20 @@ using namespace std;
 int firstIndex(int arr[], int idx, int x, int n)
 {
     // write your code here
+    // base
+    if (idx == n)
+    {
+        return -1;
+    }
+
+    // checking at idx 0
+    if (arr[idx] == x)
+    {
+        return idx;
+    }
+
+    // recursive call
+    firstIndex(arr, idx + 1, x, n);
 }
 
 int main()
