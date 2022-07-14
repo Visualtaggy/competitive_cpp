@@ -11,6 +11,20 @@ using namespace std;
 
 vector<int> allIndex(vector<int> &arr, int idx, int data, int count)
 {
+    if (idx == arr.size())
+    {
+        vector<int> null;
+        return null;
+    }
+
+    vector<int> v = allIndex(arr, idx + 1, data, count);
+
+    if (arr[idx] == data)
+    {
+        v.insert(v.begin(), idx);
+    }
+
+    return v;
 }
 
 int main()
