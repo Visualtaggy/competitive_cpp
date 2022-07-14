@@ -11,6 +11,28 @@ using namespace std;
 int lastIndex(int arr[], int idx, int x, int n)
 {
     // write your code here
+    // base case
+    if (idx == n)
+    {
+        return -1;
+    }
+    int tempIndex = lastIndex(arr, idx + 1, x, n);
+
+    if (tempIndex == -1)
+    {
+        if (arr[idx] == x)
+        {
+            return idx;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    else
+    {
+        return tempIndex;
+    }
 }
 
 int main()
