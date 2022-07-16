@@ -7,11 +7,36 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 vector<string> gss(string s)
 {
+    if (s.size() == 0)
+    {
+        vector<string> empty;
+        empty.push_back("");
+        return empty;
+    }
+
     // write your code here
+    char ch = s[0];
+    string restOfTheString = s.substr(1, s.size());
+
+    vector<string> halfAnswer = gss(restOfTheString);
+    vector<string> answer;
+
+    for (string str : halfAnswer)
+    {
+        answer.push_back(str);
+    }
+
+    for (string str : halfAnswer)
+    {
+        answer.push_back(ch + str);
+    }
+
+    return answer;
 }
 
 int main()
