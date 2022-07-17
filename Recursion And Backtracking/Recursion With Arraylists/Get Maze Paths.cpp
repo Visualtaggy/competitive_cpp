@@ -15,6 +15,37 @@ using namespace std;
 // dc - destination column
 vector<string> getMazePaths(int sr, int sc, int dr, int dc)
 {
+    //Reaching Destination
+    if (sr == dr && sc == dc)
+    {
+        vector<string> positiveBase;
+        positiveBase.push_back("");
+        return positiveBase;
+    }
+    //Falling Behind the board
+    if (sr > dr || sc > dc)
+    {
+        vector<string> negativeBase;
+        return negativeBase;
+    }
+    //Recursive Calls for movement
+    vector<string> onlyH = getMazePaths(sr, sc + 1, dr, dc);
+    vector<string> onlyV = getMazePaths(sr + 1, sc, dr, dc);
+    //DataStructre to store the answer
+    vector<string> answer;
+
+    //Adding initial move infront of recursive solution
+    for (string val : onlyH)
+    {
+        answer.push_back("h" + val);
+    }
+    for (string val : onlyV)
+    {
+        answer.push_back("v" + val);
+    }
+    
+    //Returning answer
+    return answer;
 }
 
 void display(vector<string> &arr)
