@@ -1,27 +1,44 @@
-// 1. You are given a string str. The string str will contains numbers only, where each number stands for a key pressed on a mobile phone.
-// 2. The following list is the key to characters map :
-//     0 -> .;
-//     1 -> abc
-//     2 -> def
-//     3 -> ghi
-//     4 -> jkl
-//     5 -> mno
-//     6 -> pqrs
-//     7 -> tu
-//     8 -> vwx
-//     9 -> yz
-// 3. Complete the body of getKPC function - without changing signature - to get the list of all words that could be produced by the keys in str.
-// Use sample input and output to take idea about output.
-
-// Note -> The online judge can't force you to write the function recursively but that is what the spirit of question is. Write recursive and not iterative logic. The purpose of the question is to aid learning recursion and not test you.
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
+vector<string> keyPad = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+
 vector<string> getKPC(string s)
 {
     // Write your code here
+
+    // BaseCase
+    if (s.size() == 0)
+    {
+        vector<string> emptyVector;
+        emptyVector.push_back("");
+        return emptyVector;
+    }
+
+    // Removing first number 1 from 1-2-3
+    char firstNum = s[0];
+    // keeping seprate string 2-3
+    string ros = s.substr(1, s.size());
+    // recursive call on 2-3
+    vector<string> halfAnswer = getKPC(ros);
+    vector<string> answer;
+
+    int index = firstNum - '0'; // Casting into int '1'  -> 1
+
+    // Looping for all the chars in that that number  1 -> 'abc' so the loop will run 3 times
+    for (int i = 0; i < keyPad[index].size(); i++)
+    {
+        char ch = keyPad[index].at(i); // for 1 we will just store 'a' here
+        for (string str : halfAnswer)
+        {
+            // a + ros (ros will be coming resursively)
+            answer.push_back(ch + str);
+        }
+    }
+
+    return answer;
 }
 
 int main()
