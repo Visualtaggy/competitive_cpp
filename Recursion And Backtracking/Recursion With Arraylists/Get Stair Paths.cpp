@@ -13,6 +13,43 @@ using namespace std;
 vector<string> get_stair_paths(int n)
 {
     // Write your code here
+    // Reached Destination
+    if (n == 0)
+    {
+        vector<string> positiveBaseCase;
+        positiveBaseCase.push_back("");
+        return positiveBaseCase;
+    }
+    // Went Ahead of Destination
+    if (n < 0)
+    {
+        vector<string> negativeBaseCase;
+        return negativeBaseCase;
+    }
+
+    // Recursive Calls for reach step 1,2,3
+    vector<string> oneStep = get_stair_paths(n - 1);
+    vector<string> twoStep = get_stair_paths(n - 2);
+    vector<string> threeStep = get_stair_paths(n - 3);
+
+    // Vector for final answer
+    vector<string> answer;
+
+    // Appending starting step be it 1,2 or 3
+    for (string path : oneStep)
+    {
+        answer.push_back("1" + path);
+    }
+    for (string path : twoStep)
+    {
+        answer.push_back("2" + path);
+    }
+    for (string path : threeStep)
+    {
+        answer.push_back("3" + path);
+    }
+
+    return answer;
 }
 
 int main()
