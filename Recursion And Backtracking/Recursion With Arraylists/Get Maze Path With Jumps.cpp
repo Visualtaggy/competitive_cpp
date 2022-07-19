@@ -5,3 +5,36 @@
 // Use sample input and output to take idea about output.
 
 // Note -> The online judge can't force you to write the function recursively but that is what the spirit of question is. Write recursive and not iterative logic. The purpose of the question is to aid learning recursion and not test you.
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<string> get_maze_paths(int sr, int sc, int dr, int dc)
+{
+    // Write your code here
+}
+
+void display(vector<string> &arr)
+{
+    cout << "[";
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i];
+        if (i < arr.size() - 1)
+            cout << ", ";
+    }
+
+    cout << "]" << endl;
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    vector<string> ans = get_maze_paths(0, 0, n - 1, m - 1);
+    display(ans);
+
+    return 0;
+}
