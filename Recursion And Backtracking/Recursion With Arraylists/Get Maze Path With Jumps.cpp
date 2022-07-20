@@ -14,6 +14,50 @@ using namespace std;
 vector<string> get_maze_paths(int sr, int sc, int dr, int dc)
 {
     // Write your code here
+
+    // Reaching Destination
+    if (sr == dr && sc == dc)
+    {
+        vector<string> positiveBase;
+        positiveBase.push_back("");
+        return positiveBase;
+    }
+
+    vector<string> answer;
+
+    // All Horizontal Calls
+    for (int move = 1; move <= dc - sc; move++)
+    {
+        vector<string> h1 = get_maze_paths(sr, sc + move, dr, dc);
+
+        for (string val : h1)
+        {
+            answer.push_back("h" + to_string(move) + val);
+        }
+    }
+
+    // All Vertical Calls
+    for (int move = 1; move <= dr - sr; move++)
+    {
+        vector<string> v1 = get_maze_paths(sr + move, sc, dr, dc);
+
+        for (string val : v1)
+        {
+            answer.push_back("v" + to_string(move) + val);
+        }
+    }
+
+    // All Diagnal Calls
+    for (int move = 1; move <= dr - sr & move <= dc - sc; move++)
+    {
+        vector<string> d1 = get_maze_paths(sr + move, sc + move, dr, dc);
+        for (string val : d1)
+        {
+            answer.push_back("d" + to_string(move) + val);
+        }
+    }
+
+    return answer;
 }
 
 void display(vector<string> &arr)
