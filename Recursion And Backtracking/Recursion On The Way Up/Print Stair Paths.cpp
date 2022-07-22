@@ -4,3 +4,18 @@
 // Use sample input and output to take idea about output.
 
 // Note -> The online judge can't force you to write the function recursively but that is what the spirit of question is. Write recursive and not iterative logic. The purpose of the question is to aid learning recursion and not test you.
+#include <iostream>
+using namespace std;
+
+void printStairPaths(int n, string psf)
+{
+    // write your code here
+}
+
+int main()
+{
+
+    int n;
+    cin >> n;
+    printStairPaths(n, "");
+}
