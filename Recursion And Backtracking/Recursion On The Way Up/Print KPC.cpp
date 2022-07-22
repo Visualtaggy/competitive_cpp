@@ -21,7 +21,24 @@ string codes[] = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", 
 
 void printKPC(string ques, string asf)
 {
+    // BaseCase
+    if (ques.size() == 0)
+    {
+        cout << asf << endl;
+        return;
+    }
+
     // write your code here
+    char firstNum = ques[0];
+    string remainingNum = ques.substr(1, ques.size());
+
+    string key = codes[firstNum - '0'];
+
+    for (int i = 0; i < key.size(); i++)
+    {
+        char ch = key[i];
+        printKPC(remainingNum, asf + ch);
+    }
 }
 
 int main()
