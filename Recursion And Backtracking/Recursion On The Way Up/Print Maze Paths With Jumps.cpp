@@ -7,11 +7,43 @@
 // Note -> The online judge can't force you to write the function recursively but that is what the spirit of question is. Write recursive and not iterative logic. The purpose of the question is to aid learning recursion and not test you.
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 void printMazePaths(int sr, int sc, int dr, int dc, string psf)
 {
     // write your code here
+    // BaseCase
+    if (sr == dr & sc == dc)
+    {
+        cout << psf << endl;
+        return;
+    }
+
+    // Recursive Call
+    if (sc < dc)
+    {
+        for (int move = 1; move <= dc - sc; move++)
+        {
+            printMazePaths(sr, sc + move, dr, dc, psf + "h" + to_string(move));
+        }
+    }
+
+    if (sr < dr)
+    {
+        for (int move = 1; move <= dr - sr; move++)
+        {
+            printMazePaths(sr + move, sc, dr, dc, psf + "v" + to_string(move));
+        }
+    }
+
+    if (sr < dr & sc < dc)
+    {
+        for (int move = 1; move <= dr - sr & move <= dc - sc; move++)
+        {
+            printMazePaths(sr + move, sc + move, dr, dc, psf + "d" + to_string(move));
+        }
+    }
 }
 
 int main()
