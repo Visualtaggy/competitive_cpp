@@ -23,6 +23,21 @@ using namespace std;
 void printEncoding(string str, string asf)
 {
     // write your code here
+    if (str.length() == 0)
+    {
+        cout << asf << endl;
+        return;
+    }
+
+    int code1 = str[0] - '0';
+    char atcode1 = char('a' + code1 - 1);
+    int code2 = stoi(str.substr(0, 2));
+    char atcode2 = char('a' + code2 - 1);
+
+    if (code1 != 0)
+        printEncoding(str.substr(1), asf + atcode1);
+    if (code2 >= 10 && code2 <= 26)
+        printEncoding(str.substr(2), asf + atcode2);
 }
 
 int main()
